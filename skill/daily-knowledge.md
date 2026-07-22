@@ -26,16 +26,20 @@ Create a new knowledge file immediately:
 - Path: `~/Workspace/knowledge-base/YYYY-MM/YYYYMMDD-HHmm-topic-slug.md`
 - Create the `YYYY-MM/` directory if it does not exist.
 - `topic-slug`: 2-4 word kebab-case summary of the conversation topic.
-- Write the initial header:
+- Write the initial header with Obsidian-compatible YAML frontmatter:
 
 ```markdown
-# <Topic Title>
-
-- Date: YYYY-MM-DD HH:mm
-- Agent: <agent name>
-- Tags: #tag1 #tag2
-
 ---
+date: YYYY-MM-DD
+time: HH:mm
+agent: <agent name>
+tags:
+  - tag1
+  - tag2
+type: daily
+---
+
+# <Topic Title>
 ```
 
 ### Every 5 User Turns (auto-save)
@@ -102,3 +106,5 @@ If 5 turns contain only 1 substantive exchange, save only that one. If all 5 tur
 - Redact secrets, tokens, passwords, and machine-specific paths.
 - One conversation = one file. Never merge into an existing file from a different conversation.
 - If unsure whether content is substantive, err on the side of saving a shorter version rather than skipping entirely.
+- Use Obsidian wiki-links `[[YYYYMMDD-HHmm-topic-slug]]` to reference related previous notes when a topic connects to an earlier conversation.
+- Tags in frontmatter should be lowercase, hyphenated (e.g. `agent-workflow`, `llm-infra`).
