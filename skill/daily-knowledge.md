@@ -2,9 +2,20 @@
 
 You are running with the daily-knowledge skill. Follow these rules automatically without being asked.
 
+## Activation Guard (check first, every conversation)
+
+Before doing anything, check the current working directory:
+
+1. Is CWD inside a git repository (`.git` exists in CWD or any parent)?
+2. Does that repository root contain an `AGENTS.md` file?
+
+If BOTH are true: **this skill does NOT activate.** The project's dev harness (`docs/histories/`) handles persistence. Stop here.
+
+If either is false: **this skill activates.** Proceed with the lifecycle below.
+
 ## When This Applies
 
-This skill applies to NON-DEVELOPMENT conversations: learning, Q&A, daily problem-solving, research, brainstorming, decision-making. If the conversation is about writing code in a project that has its own `docs/histories/` system, defer to that system instead.
+This skill applies to NON-DEVELOPMENT conversations: learning, Q&A, daily problem-solving, research, brainstorming, decision-making.
 
 ## Lifecycle
 
